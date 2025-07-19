@@ -1,113 +1,113 @@
 import PropertyCard from "./PropertyCard";
 import { Button } from "@/components/ui/button";
 
-// Mock data for demonstration
+// Mock data for Lagos, Nigeria
 const mockProperties = [
   {
     id: 1,
-    title: "Modern Downtown Condo with City Views",
-    price: "$450,000",
-    location: "Downtown Seattle, WA",
-    bedrooms: 2,
-    bathrooms: 2,
-    area: 1200,
+    title: "Modern 3-Bedroom Apartment in Victoria Island",
+    price: "₦180,000,000",
+    location: "Victoria Island, Lagos",
+    bedrooms: 3,
+    bathrooms: 3,
+    area: 1400,
     type: "sale" as const,
     status: "available" as const,
     image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&h=600&fit=crop",
     agent: {
-      name: "Sarah Johnson",
-      phone: "(555) 123-4567",
-      email: "sarah@realestatecloud.com"
+      name: "Adebayo Olumide",
+      phone: "+234 802 123 4567",
+      email: "adebayo@lagoshomes.ng"
     },
     isLuxury: false
   },
   {
     id: 2,
-    title: "Luxury Villa with Pool and Garden",
-    price: "$1,250,000",
-    location: "Beverly Hills, CA",
+    title: "Luxury 5-Bedroom Mansion in Ikoyi",
+    price: "₦450,000,000",
+    location: "Ikoyi, Lagos",
     bedrooms: 5,
-    bathrooms: 4,
-    area: 3500,
+    bathrooms: 6,
+    area: 4200,
     type: "sale" as const,
     status: "available" as const,
     image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&h=600&fit=crop",
     agent: {
-      name: "Michael Chen",
-      phone: "(555) 987-6543",
-      email: "michael@luxuryestates.com"
+      name: "Chioma Okechukwu",
+      phone: "+234 803 987 6543",
+      email: "chioma@luxurylagos.ng"
     },
     isLuxury: true
   },
   {
     id: 3,
-    title: "Charming Suburban Family Home",
-    price: "$2,800",
-    location: "Austin, TX",
-    bedrooms: 3,
+    title: "2-Bedroom Flat in Lekki Phase 1",
+    price: "₦2,500,000/year",
+    location: "Lekki Phase 1, Lagos",
+    bedrooms: 2,
     bathrooms: 2,
-    area: 1800,
+    area: 1100,
     type: "rent" as const,
     status: "available" as const,
     image: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&h=600&fit=crop",
     agent: {
-      name: "Emily Rodriguez",
-      phone: "(555) 456-7890",
-      email: "emily@homefinders.com"
+      name: "Funmi Adebisi",
+      phone: "+234 805 456 7890",
+      email: "funmi@lekkirentals.ng"
     },
     isLuxury: false
   },
   {
     id: 4,
-    title: "Waterfront Penthouse with Panoramic Views",
-    price: "$3,200,000",
-    location: "Miami Beach, FL",
+    title: "Waterfront Penthouse in Banana Island",
+    price: "₦800,000,000",
+    location: "Banana Island, Lagos",
     bedrooms: 4,
-    bathrooms: 3,
-    area: 2800,
+    bathrooms: 5,
+    area: 3500,
     type: "sale" as const,
     status: "sold" as const,
     image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&h=600&fit=crop",
     agent: {
-      name: "David Martinez",
-      phone: "(555) 321-9876",
-      email: "david@oceanview.com"
+      name: "Emeka Nwosu",
+      phone: "+234 806 321 9876",
+      email: "emeka@eliteproperties.ng"
     },
     isLuxury: true
   },
   {
     id: 5,
-    title: "Cozy Studio Apartment in Arts District",
-    price: "$1,850",
-    location: "Portland, OR",
+    title: "1-Bedroom Studio in Yaba",
+    price: "₦800,000/year",
+    location: "Yaba, Lagos",
     bedrooms: 1,
     bathrooms: 1,
-    area: 650,
+    area: 450,
     type: "rent" as const,
     status: "rented" as const,
     image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&h=600&fit=crop",
     agent: {
-      name: "Jessica Liu",
-      phone: "(555) 654-3210",
-      email: "jessica@cityrentals.com"
+      name: "Kemi Ogundimu",
+      phone: "+234 807 654 3210",
+      email: "kemi@yabarentals.ng"
     },
     isLuxury: false
   },
   {
     id: 6,
-    title: "Historic Brownstone with Original Details",
-    price: "$875,000",
-    location: "Brooklyn, NY",
-    bedrooms: 3,
-    bathrooms: 2,
-    area: 2100,
+    title: "4-Bedroom Duplex in Magodo",
+    price: "₦120,000,000",
+    location: "Magodo, Lagos",
+    bedrooms: 4,
+    bathrooms: 4,
+    area: 2800,
     type: "sale" as const,
     status: "available" as const,
     image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop",
     agent: {
-      name: "Robert Thompson",
-      phone: "(555) 789-0123",
-      email: "robert@heritage.com"
+      name: "Tunde Bakare",
+      phone: "+234 808 789 0123",
+      email: "tunde@magodohomes.ng"
     },
     isLuxury: false
   }

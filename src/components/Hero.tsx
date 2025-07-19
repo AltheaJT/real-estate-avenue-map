@@ -14,13 +14,13 @@ const Hero = () => {
           <h1 className="text-4xl md:text-6xl font-bold text-primary-foreground mb-6 leading-tight">
             Find Your Perfect
             <span className="block bg-gradient-to-r from-accent to-luxury bg-clip-text text-transparent">
-              Dream Home
+              Home in Lagos
             </span>
           </h1>
           
           <p className="text-xl text-primary-foreground/90 mb-12 max-w-2xl mx-auto leading-relaxed">
-            Discover thousands of properties with our comprehensive real estate platform. 
-            Connect with trusted agents and find the perfect place to call home.
+            Discover premium properties across Lagos, Nigeria. From Victoria Island to Lekki, 
+            connect with trusted agents and find your dream home today.
           </p>
 
           {/* Search Form */}
@@ -29,7 +29,7 @@ const Hero = () => {
               <div className="relative">
                 <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
                 <Input
-                  placeholder="Location"
+                  placeholder="Lagos Area (e.g., Victoria Island, Lekki)"
                   className="pl-10 h-12 border-0 bg-muted/50 focus:bg-background"
                 />
               </div>
@@ -52,11 +52,11 @@ const Hero = () => {
                   <SelectValue placeholder="Price Range" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="0-100k">$0 - $100k</SelectItem>
-                  <SelectItem value="100k-300k">$100k - $300k</SelectItem>
-                  <SelectItem value="300k-500k">$300k - $500k</SelectItem>
-                  <SelectItem value="500k-1m">$500k - $1M</SelectItem>
-                  <SelectItem value="1m+">$1M+</SelectItem>
+                  <SelectItem value="0-50m">₦0 - ₦50M</SelectItem>
+                  <SelectItem value="50m-100m">₦50M - ₦100M</SelectItem>
+                  <SelectItem value="100m-200m">₦100M - ₦200M</SelectItem>
+                  <SelectItem value="200m-500m">₦200M - ₦500M</SelectItem>
+                  <SelectItem value="500m+">₦500M+</SelectItem>
                 </SelectContent>
               </Select>
               
@@ -69,7 +69,7 @@ const Hero = () => {
             <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
               <span className="flex items-center gap-1">
                 <Home className="h-4 w-4" />
-                50,000+ Properties
+                5,000+ Lagos Properties
               </span>
               <span className="flex items-center gap-1">
                 <TrendingUp className="h-4 w-4" />
