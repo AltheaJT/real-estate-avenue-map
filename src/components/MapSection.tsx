@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { MapPin, Navigation, Coffee, ShoppingBag, GraduationCap, Hospital } from "lucide-react";
+import Map from "./Map";
 
 const MapSection = () => {
   return (
@@ -36,34 +37,8 @@ const MapSection = () => {
                 </div>
               </div>
               
-              {/* Interactive Map Placeholder */}
-              <div className="h-96 bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center relative overflow-hidden">
-                <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width=%2240%22%20height=%2240%22%20viewBox=%220%200%2040%2040%22%20xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg%20fill=%22none%22%20fill-rule=%22evenodd%22%3E%3Cg%20fill=%22%23000%22%20fill-opacity=%220.05%22%3E%3Ccircle%20cx=%2220%22%20cy=%2220%22%20r=%221%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
-                
-                <div className="text-center z-10">
-                  <MapPin className="h-16 w-16 text-primary mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold text-foreground mb-2">
-                    Interactive Map Coming Soon
-                  </h3>
-                  <p className="text-muted-foreground mb-4 max-w-sm">
-                    Connect your Google Maps API to enable interactive property mapping with real-time directions and amenity discovery.
-                  </p>
-                  <Button variant="outline">
-                    Setup Google Maps API
-                  </Button>
-                </div>
-
-                {/* Mock Map Pins */}
-                <div className="absolute top-1/4 left-1/3 bg-destructive text-destructive-foreground rounded-full p-2 shadow-card animate-pulse">
-                  <MapPin className="h-4 w-4" />
-                </div>
-                <div className="absolute top-1/2 right-1/4 bg-success text-success-foreground rounded-full p-2 shadow-card animate-pulse delay-300">
-                  <MapPin className="h-4 w-4" />
-                </div>
-                <div className="absolute bottom-1/3 left-1/2 bg-primary text-primary-foreground rounded-full p-2 shadow-card animate-pulse delay-700">
-                  <MapPin className="h-4 w-4" />
-                </div>
-              </div>
+              {/* Interactive Map */}
+              <Map />
             </div>
           </div>
 
