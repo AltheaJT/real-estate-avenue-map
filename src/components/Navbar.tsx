@@ -27,7 +27,7 @@ const Navbar = () => {
             <div className="bg-gradient-primary p-2 rounded-lg">
               <MapPin className="h-6 w-6 text-primary-foreground" />
             </div>
-            <span className="text-xl font-bold text-foreground">RealEstate Pro</span>
+            <span className="text-xl font-bold text-foreground">Real Estate Tech</span>
           </div>
 
           {/* Search Bar - Hidden on mobile */}
@@ -85,7 +85,7 @@ const Navbar = () => {
                     </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
-                <Button variant="default" className="hidden md:flex">
+                <Button variant="default" className="hidden md:flex" onClick={() => navigate('/list-property')}>
                   List Property
                 </Button>
               </>
@@ -146,7 +146,7 @@ const Navbar = () => {
                       <User className="h-4 w-4 mr-2" />
                       Profile
                     </Button>
-                    <Button variant="default" className="w-full">
+                    <Button variant="default" className="w-full" onClick={() => navigate('/list-property')}>
                       List Property
                     </Button>
                     <Button variant="destructive" className="w-full" onClick={signOut}>

@@ -15,7 +15,7 @@ const Footer = () => {
                 <div className="bg-gradient-primary p-2 rounded-lg">
                   <MapPin className="h-6 w-6 text-primary-foreground" />
                 </div>
-                <span className="text-xl font-bold">RealEstate Pro</span>
+                <span className="text-xl font-bold">Real Estate Tech</span>
               </div>
               <p className="text-background/80 mb-6 leading-relaxed">
                 Your trusted partner in finding the perfect property. Connecting buyers, 
@@ -126,9 +126,8 @@ const Footer = () => {
                 <div className="flex items-start gap-3">
                   <MapPin className="h-4 w-4 text-background/80 mt-1" />
                   <span className="text-background/80">
-                    123 Real Estate Ave<br />
-                    Suite 100<br />
-                    New York, NY 10001
+                    Augustine University, Ilara-Epe<br />
+                    Epe, Lagos, Nigeria
                   </span>
                 </div>
               </div>
@@ -155,7 +154,7 @@ const Footer = () => {
         <div className="border-t border-background/20 py-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-background/60 text-sm">
-              © 2024 RealEstate Pro. All rights reserved.
+              © 2024 Real Estate Tech. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm">
               <a href="#" className="text-background/60 hover:text-background transition-colors">
