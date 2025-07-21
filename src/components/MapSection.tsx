@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { MapPin, Navigation, Coffee, ShoppingBag, GraduationCap, Hospital } from "lucide-react";
-import Map from "./Map";
+import GoogleMap from "./GoogleMap";
 
 const MapSection = () => {
   return (
@@ -38,7 +38,7 @@ const MapSection = () => {
               </div>
               
               {/* Interactive Map */}
-              <Map />
+              <GoogleMap />
             </div>
           </div>
 

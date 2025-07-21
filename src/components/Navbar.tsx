@@ -98,6 +98,9 @@ const Navbar = () => {
                 <Button variant="default" className="hidden md:flex" onClick={() => navigate('/auth')}>
                   Sign Up
                 </Button>
+                <Button variant="default" className="hidden md:flex" onClick={() => navigate('/list-property')}>
+                  List Property
+                </Button>
               </>
             )}
 
@@ -161,6 +164,9 @@ const Navbar = () => {
                     </Button>
                     <Button variant="default" className="w-full" onClick={() => navigate('/auth')}>
                       Sign Up
+                    </Button>
+                    <Button variant="default" className="w-full" onClick={() => navigate('/list-property')}>
+                      List Property
                     </Button>
                   </>
                 )}
