@@ -90,7 +90,7 @@ const Hero = () => {
             <Button variant="outline" size="lg" className="bg-background/20 border-primary-foreground/20 text-primary-foreground hover:bg-background/30">
               Find Rental Properties
             </Button>
-            <Button variant="accent" size="lg" onClick={() => window.location.href = '/list-property'}>
+            <Button variant="accent" size="lg" onClick={() => window.location.href = '/auth'}>
               List Your Property
             </Button>
           </div>

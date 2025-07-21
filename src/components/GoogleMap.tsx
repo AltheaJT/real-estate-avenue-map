@@ -16,13 +16,11 @@ interface GoogleMapProps {
 const GoogleMap: React.FC<GoogleMapProps> = ({ onTokenProvided }) => {
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<any>(null);
-  const [apiKey, setApiKey] = useState<string>('');
-  const [keyInput, setKeyInput] = useState<string>('');
+  const [apiKey] = useState<string>('AIzaSyAA1eHSvXBZAsnM8pWrlqaqTpp_4CPTMiA');
   const [isMapInitialized, setIsMapInitialized] = useState(false);
-  const [showKeyInput, setShowKeyInput] = useState(false);
 
   const initializeMap = (key: string) => {
-    if (!mapContainer.current || isMapInitialized) return;
+    if (!mapContainer.current || isMapInitialized || !key) return;
 
     // Load Google Maps script
     const script = document.createElement('script');
@@ -108,59 +106,19 @@ const GoogleMap: React.FC<GoogleMapProps> = ({ onTokenProvided }) => {
     document.head.appendChild(script);
   };
 
-  const handleKeySubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (keyInput.trim()) {
-      setApiKey(keyInput.trim());
-      initializeMap(keyInput.trim());
-      setShowKeyInput(false);
-    }
-  };
-
   useEffect(() => {
+    // Auto-initialize with the provided API key
+    if (apiKey && !isMapInitialized) {
+      initializeMap(apiKey);
+    }
+    
     return () => {
       // Cleanup
       const scripts = document.querySelectorAll('script[src*="maps.googleapis.com"]');
       scripts.forEach(script => script.remove());
       delete window.initMap;
     };
-  }, []);
-
-  if (showKeyInput) {
-    return (
-      <div className="h-96 bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center rounded-lg">
-        <div className="text-center p-8 max-w-md">
-          <h3 className="text-xl font-semibold text-foreground mb-4">
-            Google Maps Integration
-          </h3>
-          <p className="text-muted-foreground mb-6">
-            Enter your Google Maps API key to enable interactive mapping. 
-            Get your key from{' '}
-            <a 
-              href="https://developers.google.com/maps/documentation/javascript/get-api-key" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-primary hover:underline"
-            >
-              Google Cloud Console
-            </a>
-          </p>
-          <form onSubmit={handleKeySubmit} className="space-y-4">
-            <Input
-              type="text"
-              placeholder="AIzaSyA..."
-              value={keyInput}
-              onChange={(e) => setKeyInput(e.target.value)}
-              className="w-full"
-            />
-            <Button type="submit" className="w-full">
-              Initialize Map
-            </Button>
-          </form>
-        </div>
-      </div>
-    );
-  }
+  }, [apiKey, isMapInitialized]);
 
   return (
     <div className="relative w-full h-96">
@@ -168,14 +126,7 @@ const GoogleMap: React.FC<GoogleMapProps> = ({ onTokenProvided }) => {
       {!isMapInitialized && (
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center rounded-lg">
           <div className="text-center">
-            <p className="text-muted-foreground mb-4">Lagos Property Map</p>
-            <Button 
-              variant="outline" 
-              onClick={() => setShowKeyInput(true)}
-              className="text-sm"
-            >
-              Add Google Maps API Key
-            </Button>
+            <p className="text-muted-foreground">Loading Lagos Property Map...</p>
           </div>
         </div>
       )}
