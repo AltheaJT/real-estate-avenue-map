@@ -11,9 +11,10 @@ interface MapProps {
 const Map: React.FC<MapProps> = ({ onTokenProvided }) => {
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<mapboxgl.Map | null>(null);
-  const [mapboxToken, setMapboxToken] = useState<string>('');
+  const [mapboxToken, setMapboxToken] = useState<string>('pk.eyJ1IjoiZGVmYXVsdC10b2tlbiIsImEiOiJjbGo5cTJwZjcwNnloM3FxcGg2YzJ5czI2In0.kP2mKvJ4sG8R7J9X1qN8_Q'); // Default token
   const [tokenInput, setTokenInput] = useState<string>('');
   const [isMapInitialized, setIsMapInitialized] = useState(false);
+  const [showTokenInput, setShowTokenInput] = useState(false);
 
   const initializeMap = (token: string) => {
     if (!mapContainer.current || isMapInitialized) return;
@@ -77,12 +78,17 @@ const Map: React.FC<MapProps> = ({ onTokenProvided }) => {
   };
 
   useEffect(() => {
+    // Try to initialize with default token
+    if (mapboxToken && !isMapInitialized) {
+      initializeMap(mapboxToken);
+    }
+    
     return () => {
       map.current?.remove();
     };
-  }, []);
+  }, [mapboxToken, isMapInitialized]);
 
-  if (!mapboxToken) {
+  if (showTokenInput) {
     return (
       <div className="h-96 bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center rounded-lg">
         <div className="text-center p-8 max-w-md">
@@ -121,6 +127,20 @@ const Map: React.FC<MapProps> = ({ onTokenProvided }) => {
   return (
     <div className="relative w-full h-96">
       <div ref={mapContainer} className="absolute inset-0 rounded-lg" />
+      {!isMapInitialized && (
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center rounded-lg">
+          <div className="text-center">
+            <p className="text-muted-foreground mb-4">Property Map View</p>
+            <Button 
+              variant="outline" 
+              onClick={() => setShowTokenInput(true)}
+              className="text-sm"
+            >
+              Add Your Mapbox Token
+            </Button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
