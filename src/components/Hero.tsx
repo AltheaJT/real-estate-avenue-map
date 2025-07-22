@@ -1,9 +1,13 @@
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Search, MapPin, Home, TrendingUp } from "lucide-react";
+import { Search, MapPin, Home, TrendingUp, SlidersHorizontal } from "lucide-react";
+import { useState } from "react";
 
 const Hero = () => {
+  const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
+
   return (
     <section className="relative min-h-[600px] bg-gradient-hero flex items-center justify-center overflow-hidden">
       {/* Background Pattern */}
@@ -25,6 +29,7 @@ const Hero = () => {
 
           {/* Search Form */}
           <div className="bg-background/95 backdrop-blur-sm rounded-2xl p-6 shadow-luxury max-w-4xl mx-auto">
+            {/* Primary Search Row */}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-4">
               <div className="relative">
                 <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
@@ -65,6 +70,120 @@ const Hero = () => {
                 Search
               </Button>
             </div>
+
+            {/* Advanced Filters Toggle */}
+            <div className="flex justify-center mb-4">
+              <Button
+                variant="ghost"
+                onClick={() => setShowAdvancedFilters(!showAdvancedFilters)}
+                className="text-muted-foreground hover:text-foreground"
+              >
+                <SlidersHorizontal className="h-4 w-4 mr-2" />
+                {showAdvancedFilters ? 'Hide' : 'Show'} Advanced Filters
+              </Button>
+            </div>
+
+            {/* Advanced Filters */}
+            {showAdvancedFilters && (
+              <div className="border-t border-border pt-4 mb-4">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-4">
+                  <Select>
+                    <SelectTrigger className="h-12 border-0 bg-muted/50 focus:bg-background">
+                      <SelectValue placeholder="Bedrooms" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="any">Any</SelectItem>
+                      <SelectItem value="1">1 Bedroom</SelectItem>
+                      <SelectItem value="2">2 Bedrooms</SelectItem>
+                      <SelectItem value="3">3 Bedrooms</SelectItem>
+                      <SelectItem value="4">4 Bedrooms</SelectItem>
+                      <SelectItem value="5+">5+ Bedrooms</SelectItem>
+                    </SelectContent>
+                  </Select>
+
+                  <Select>
+                    <SelectTrigger className="h-12 border-0 bg-muted/50 focus:bg-background">
+                      <SelectValue placeholder="Bathrooms" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="any">Any</SelectItem>
+                      <SelectItem value="1">1 Bathroom</SelectItem>
+                      <SelectItem value="2">2 Bathrooms</SelectItem>
+                      <SelectItem value="3">3 Bathrooms</SelectItem>
+                      <SelectItem value="4">4 Bathrooms</SelectItem>
+                      <SelectItem value="5+">5+ Bathrooms</SelectItem>
+                    </SelectContent>
+                  </Select>
+
+                  <Select>
+                    <SelectTrigger className="h-12 border-0 bg-muted/50 focus:bg-background">
+                      <SelectValue placeholder="Min Area (sqft)" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="any">Any Size</SelectItem>
+                      <SelectItem value="500">500+ sqft</SelectItem>
+                      <SelectItem value="1000">1,000+ sqft</SelectItem>
+                      <SelectItem value="1500">1,500+ sqft</SelectItem>
+                      <SelectItem value="2000">2,000+ sqft</SelectItem>
+                      <SelectItem value="3000">3,000+ sqft</SelectItem>
+                      <SelectItem value="5000">5,000+ sqft</SelectItem>
+                    </SelectContent>
+                  </Select>
+
+                  <Select>
+                    <SelectTrigger className="h-12 border-0 bg-muted/50 focus:bg-background">
+                      <SelectValue placeholder="Furnishing" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="any">Any</SelectItem>
+                      <SelectItem value="furnished">Furnished</SelectItem>
+                      <SelectItem value="semi-furnished">Semi-Furnished</SelectItem>
+                      <SelectItem value="unfurnished">Unfurnished</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <Select>
+                    <SelectTrigger className="h-12 border-0 bg-muted/50 focus:bg-background">
+                      <SelectValue placeholder="Parking Spaces" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="any">Any</SelectItem>
+                      <SelectItem value="1">1 Space</SelectItem>
+                      <SelectItem value="2">2 Spaces</SelectItem>
+                      <SelectItem value="3">3 Spaces</SelectItem>
+                      <SelectItem value="4+">4+ Spaces</SelectItem>
+                    </SelectContent>
+                  </Select>
+
+                  <Select>
+                    <SelectTrigger className="h-12 border-0 bg-muted/50 focus:bg-background">
+                      <SelectValue placeholder="Year Built" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="any">Any Year</SelectItem>
+                      <SelectItem value="2020+">2020 or Newer</SelectItem>
+                      <SelectItem value="2015+">2015 or Newer</SelectItem>
+                      <SelectItem value="2010+">2010 or Newer</SelectItem>
+                      <SelectItem value="2005+">2005 or Newer</SelectItem>
+                    </SelectContent>
+                  </Select>
+
+                  <Select>
+                    <SelectTrigger className="h-12 border-0 bg-muted/50 focus:bg-background">
+                      <SelectValue placeholder="Property Status" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="available">Available Only</SelectItem>
+                      <SelectItem value="luxury">Luxury Properties</SelectItem>
+                      <SelectItem value="featured">Featured Properties</SelectItem>
+                      <SelectItem value="new">New Listings</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+            )}
             
             <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
               <span className="flex items-center gap-1">
